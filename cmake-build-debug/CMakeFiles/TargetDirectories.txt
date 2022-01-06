@@ -1,0 +1,3 @@
+/Users/luisnavarreterios/Desktop/side-projects/emulators/gbc/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/luisnavarreterios/Desktop/side-projects/emulators/gbc/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/luisnavarreterios/Desktop/side-projects/emulators/gbc/cmake-build-debug/CMakeFiles/gbc.dir
