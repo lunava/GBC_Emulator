@@ -7,4 +7,5 @@
 
  CPU::CPU(int x) {
     std::cout << x << std::endl;
+
 }
