@@ -3,4 +3,9 @@ project(gbc)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(gbc main.cpp)
+include_directories(src)
+include_directories(include)
+set(SOURCE_FILES
+        src/cpu/CPU.cpp
+        main.cpp)
+add_executable(gbc ${SOURCE_FILES})

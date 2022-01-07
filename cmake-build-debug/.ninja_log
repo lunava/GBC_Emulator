@@ -1,0 +1,7 @@
+# ninja log v5
+0	621	1641521383937929831	CMakeFiles/src.dir/src/cpu/CPU.cpp.o	1b0edcecce3c1fc4
+0	88	1641521772197678507	build.ninja	89935a505b7f5cef
+0	1136	1641520998430837353	CMakeFiles/someprojectname.dir/src/cpu/CPU.cpp.o	bbcc6505362e8db6
+0	638	1641521431247119532	CMakeFiles/gbc.dir/src/cpu/CPU.cpp.o	433b182dcee931eb
+2	659	1641521777317994793	CMakeFiles/gbc.dir/main.cpp.o	2ac24f4f5a90e86b
+659	720	1641521777381658658	gbc	8729f94f9c721d9e
