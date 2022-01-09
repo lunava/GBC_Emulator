@@ -1,15 +1,41 @@
 //
-// Created by Luis Navarrete Rios on 1/6/22.
 //
 
 #include "cpu/CPU.h"
 #include "iostream"
 
+void CPU::load(Byte reg1, Byte &reg2){
+    reg1 = reg2;
+}
+
+//Initializes the CPU
+
+//TODO: Check actual initial values
+void CPU::reset_CPU() {
+    //Byte Registers
+
+    //Word Registers
+    CPU_registers.AF.word = 0x0000;
+    CPU_registers.BC.word = 0x0000;
+    CPU_registers.DE.word = 0x0000;
+    CPU_registers.HL.word = 0x0000;
+    CPU_registers.PC.word = 0x0000;
+    CPU_registers.SP.word = 0x0000;
+
+
+}
+CPU::CPU() {
+    reset_CPU(); //Initializes CPU registers to start
+}
+
 //execute instruction based on opcode
 void CPU::execute(Byte opcode) {
     //TODO
+    int left = opcode  >> 4 & 0xF;
+    int right = opcode & 0xF;
+    //Might want to create its own look up table for opcodes
     switch (opcode) {
-        case 0x00: /*NOP*/break; case 0x01: /*NOP*/break; case 0x02: /*NOP*/break; case 0x03: /*NOP*/break; case 0x04: /*NOP*/break;
+        case 0x00: /*NOP*/ break; case 0x01: /*NOP*/break; case 0x02: /*NOP*/break; case 0x03: /*NOP*/break; case 0x04: /*NOP*/break;
         case 0x05: /*NOP*/break; case 0x06: /*NOP*/break; case 0x07: /*NOP*/break; case 0x09: /*NOP*/break; case 0x0A: /*NOP*/break;
         case 0x0B: /*NOP*/break; case 0x0C: /*NOP*/break; case 0x0D: /*NOP*/break; case 0x0E: /*NOP*/break; case 0x0F: /*NOP*/break;
 
@@ -75,4 +101,5 @@ void CPU::execute(Byte opcode) {
 
     }
 }
+
 
