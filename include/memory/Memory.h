@@ -24,5 +24,5 @@ class Memory {
   void writeByte(Word address, Byte value);
   void writeShort(Word address, Word value);
   void writeShortToStack(Word value);
-}
+};
 #endif //MEMORY_H

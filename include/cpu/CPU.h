@@ -3,38 +3,23 @@
 //
 #ifndef GBC_CPU_H
 #define GBC_CPU_H
-#include "common.h"
+#include "Register.h"
+#include "memory/Memory.h"
 
 class CPU {
 public:
-    typedef union Register{
-        struct{
-            Byte lo;
-            Byte hi;
-        };
-        Word word;
-    } Register;
-
-    typedef struct Registers{
-        Register AF;
-        Register BC;
-        Register DE;
-        Register HL;
+    struct Registers{
+        PairRegister AF;
+        PairRegister BC;
+        PairRegister DE;
+        PairRegister HL;
         //Special Registers
-        Register SP;
-        Register PC;
+        WordRegister SP;
+        WordRegister PC;
+    }CPU_registers;
 
-    }Registers;
-
-//Flag registers for AF Register
-    struct Flag {
-        Byte Z; // 0 iff the operation result is 0 (used in conditional jumps)
-        Byte N; // used only in DAA instructions
-        Byte H; // used only in DAA instructions
-        Byte C; // used in multiple cases; see pandocs
-    };
-
-    Registers CPU_registers;
+    //Assumes that we will have memory TODO
+    Memory memory;
     CPU();
     void reset_CPU();
 
@@ -46,8 +31,9 @@ public:
     // Diff Load Instructions
         //TODO: Will need to change to actual Address
         //8 Bit
-    void load(Byte reg1, Byte &reg2);
-    void load(Byte reg1, Word &reg2);
+    void load(Register reg1, Register reg2);
+    void load(Register reg1, Word reg2);
+        //TODO
     void load(Word reg1, Byte &reg2);
     void load(Word reg);
     void loadi(Word reg);

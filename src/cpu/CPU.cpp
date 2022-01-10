@@ -4,35 +4,41 @@
 #include "cpu/CPU.h"
 #include "iostream"
 
-void CPU::load(Byte reg1, Byte &reg2){
-    reg1 = reg2;
+//Set the values of reg2 into reg1
+void CPU::load(Register reg1, Register reg2 ){
+    reg1.setVal(reg2.getByte());
+}
+void CPU::load(Register reg1, WordRegister reg2) {
+    reg1.setVal(memory.readByte(reg2.getAddress()));
+}
+void CPU::load(Word reg1, Byte &reg2) {
+
 }
 
 //Initializes the CPU
 
 //TODO: Check actual initial values
 void CPU::reset_CPU() {
-    //Byte Registers
+    //Byte Register
 
-    //Word Registers
-    CPU_registers.AF.word = 0x0000;
-    CPU_registers.BC.word = 0x0000;
-    CPU_registers.DE.word = 0x0000;
-    CPU_registers.HL.word = 0x0000;
-    CPU_registers.PC.word = 0x0000;
-    CPU_registers.SP.word = 0x0000;
+    //Word Register
+
+    CPU_registers.AF.setVal(0x0000);
+    CPU_registers.BC.setVal(0x0000);
+    CPU_registers.DE.setVal(0x0000);
+    CPU_registers.HL.setVal(0x0000);
+    CPU_registers.PC.setVal(0x0000);
+    CPU_registers.SP.setVal(0x0000);
 
 
-}
-CPU::CPU() {
-    reset_CPU(); //Initializes CPU registers to start
 }
 
 //execute instruction based on opcode
 void CPU::execute(Byte opcode) {
     //TODO
-    int left = opcode  >> 4 & 0xF;
+    int left = opcode >> 4 & 0xF;
     int right = opcode & 0xF;
+
     //Might want to create its own look up table for opcodes
     switch (opcode) {
         case 0x00: /*NOP*/ break; case 0x01: /*NOP*/break; case 0x02: /*NOP*/break; case 0x03: /*NOP*/break; case 0x04: /*NOP*/break;
